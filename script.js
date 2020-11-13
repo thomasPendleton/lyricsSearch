@@ -7,11 +7,17 @@ const more = document.getElementById("more");
 const apiURL = "https://api.lyrics.ovh";
 
 // Search by song or artist
-function searchSongs(term) {
-  fetch(`${apiURL}/suggest/${term}`)
-    .then((response) => response.json())
-    .then((data) => console.log(data));
-}
+async function searchSongs(term) {
+    const res = await fetch(`${apiURL}/suggest/${term}`);
+    const data = await res.json();
+    console.log(data)
+    showData(data);
+  }
+
+  // show song and artist in dom
+  function showData(){
+    
+  }
 
 // event listeners
 form.addEventListener("submit", (e) => {
